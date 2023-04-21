@@ -7,7 +7,7 @@ import EmployeeForm from './Component/EmployeeForm';
 
 function App() {
   return (
-   <BrowserRouter basename="/assignment-7">
+   <BrowserRouter>
    <Routes>
     <Route path="/" element={
     <Dashboard/>

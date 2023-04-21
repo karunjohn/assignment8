@@ -14,7 +14,7 @@ app.listen(3000,()=>{
 })
 
 const path=require('path');
-app.use(express.static(path.join(__dirname+'/dist/FrontEnd')));
+app.use('/static',express.static(path.join(__dirname+'/FrontEnd/build/static')));
 //logger
 app.use(logger('combined'))
 // Task2: create mongoDB connection 
@@ -133,7 +133,7 @@ app.put('/api/employeelist',async(req,res)=>{
 })
 //! dont delete this code. it connects the front end file.
 app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname + '/dist/Frontend/index.html'));
+   res.sendFile(path.join(__dirname + '/Frontend/build/index.html'));
 });
 
 
