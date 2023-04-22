@@ -22,9 +22,10 @@ function Dashboard() {
     <Table striped bordered hover>
       <thead>
         <tr>
-          <th>ID</th>
           <th>Name</th>
-          <th>Email</th>
+          <th>Position</th>
+          <th>Location</th>
+          <th>Salary</th>
         </tr>
       </thead>
 
@@ -33,9 +34,10 @@ function Dashboard() {
         
           users.map(user => (
             <tr>
-             <td>{user.id}</td>
              <td>{user.name}</td>
-             <td>{user.email}</td> 
+             <td>{user.position}</td>
+             <td>{user.location}</td>
+             <td>{user.salary}</td>
              </tr>
           ))
         
