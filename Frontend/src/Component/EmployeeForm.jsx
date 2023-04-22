@@ -43,24 +43,24 @@ function EmployeeForm() {
         <Form>
       <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Name</Form.Label>
-        <Form.Control type="text" placeholder="Enter Your Name"  onChange={changeData} name='Name' />
+        <Form.Control type="text" placeholder="Enter Your Name"  onChange={changeData} name='name' />
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicDesignation">
-        <Form.Label>Designation</Form.Label>
-        <Form.Control type="text" placeholder="Enter Your Designation" onChange={changeData} name='Designation'/>
+        <Form.Label>Position</Form.Label>
+        <Form.Control type="text" placeholder="Enter Your Designation" onChange={changeData} name='position'/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicLocation">
         <Form.Label>Location</Form.Label>
-        <Form.Control type="text" placeholder="Enter Your Location"  onChange={changeData} name='Location'/>
+        <Form.Control type="text" placeholder="Enter Your Location"  onChange={changeData} name='location'/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicSalary">
         <Form.Label>Salary</Form.Label>
-        <Form.Control type="number" placeholder="Enter Your Salary"  onChange={changeData} name='Salary'/>
+        <Form.Control type="number" placeholder="Enter Your Salary"  onChange={changeData} name='salary'/>
       </Form.Group>
 
       
