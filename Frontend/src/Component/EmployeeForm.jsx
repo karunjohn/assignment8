@@ -64,7 +64,7 @@ function EmployeeForm() {
       </Form.Group>
 
       
-      <Button variant="primary" type="submit" onClick={clickSubmit}>
+      <Button variant="primary" onClick={clickSubmit}>
         Submit
       </Button>
     </Form>
