@@ -2,6 +2,9 @@
 const express=require('express')
 const app=express()
 
+// const Cors=require('cors');
+// app.use(Cors())
+
 const logger=require('morgan')
 
 

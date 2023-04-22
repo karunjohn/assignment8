@@ -4,16 +4,11 @@ import axios from 'axios'
 import Table from 'react-bootstrap/Table';
 
 function Dashboard() {
-  const apilink="https://jsonplaceholder.typicode.com/users"
+  const apilink="http://localhost:3000/api/employeelist"
 
-  var [users,change]=useState(
-    [
+  var [users,change]=useState( [] )
 
-    ]
-  )
-
-  React.useEffect(
-    ()=>{
+  React.useEffect( ()=>{
       axios.get(apilink).then(
         (response)=>{
           change(response.data)
