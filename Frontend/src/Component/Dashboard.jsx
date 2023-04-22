@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Navigation from './Navigation'
 import axios from 'axios'
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 function Dashboard() {
   const apilink="http://localhost:3000/api/employeelist"
@@ -16,6 +18,26 @@ function Dashboard() {
       )
     },[]
   )
+  const update=(event)=>{
+
+    console.log(event)
+    let input= {}
+    input.name=event.target.attributes.username;
+    input.position=event.target.attributes.userposition;
+    input.location=event.target.attributes.userlocation;
+    input.salary=event.target.attributes.usersalary;
+    console.log(input)
+     axios.put("http://localhost:3000/api/employeelist", input).then(response=>{alert("user updated")})
+  }
+  const setUser=(id,name,email,place,designation,salary)=>{
+    localStorage.setItem("_id",id);
+    localStorage.setItem("name",name);
+    localStorage.setItem("location",place);
+    localStorage.setItem("position",designation);
+    localStorage.setItem("salary",salary);
+        
+  }
+
   return (
     <div><Navigation/>
     <div>
@@ -38,6 +60,13 @@ function Dashboard() {
              <td>{user.position}</td>
              <td>{user.location}</td>
              <td>{user.salary}</td>
+             <td>
+              <Link to={'/update'}>
+              <Button variant="primary" onClick={() => setUser(user._id, user.name, user.email, user.location, user.position, user.salary)}>
+        Update
+      </Button>
+      </Link>
+      </td>
              </tr>
           ))
         
