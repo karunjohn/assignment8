@@ -29,13 +29,25 @@ function Dashboard() {
     console.log(input)
      axios.put("http://localhost:3000/api/employeelist", input).then(response=>{alert("user updated")})
   }
-  const setUser=(id,name,email,place,designation,salary)=>{
+  const setUser=(id,name,place,designation,salary)=>{
     localStorage.setItem("_id",id);
     localStorage.setItem("name",name);
     localStorage.setItem("location",place);
     localStorage.setItem("position",designation);
     localStorage.setItem("salary",salary);
         
+  }
+  const deleteUser=(id,name,place,designation,salary)=>{
+    axios.delete('/api/employeelist')
+    .then(response =>{
+        if(response.status === 200){
+            console.log("inside axios")
+            navigate('/')
+        }
+        else{
+            alert("Update Failed")
+        }
+    })
   }
 
   return (
@@ -66,6 +78,10 @@ function Dashboard() {
         Update
       </Button>
       </Link>
+      <Button variant="danger" onClick={() => deleteUser(user._id, user.name, user.email, user.location, user.position, user.salary)}>
+        Update
+      </Button>
+      
       </td>
              </tr>
           ))
