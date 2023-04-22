@@ -11,17 +11,25 @@ import axios from 'axios';
 
 
 function EmployeeForm() {
+
   
     const[input,changeInput]=useState({})
   
     const changeData=(event)=>{
+      console.log(event)
+      console.log(event.target.name)
       changeInput({...input,[event.target.name]:event.target.value
   
       })
+      console.log(input)
   
     }
+    
+
+
   
   const clickSubmit=()=>{
+    console.log(input)
     axios.post("http://localhost:3000/api/employeelist", input).then(response=>{changeInput(response.data)})
   }
   return (
@@ -35,24 +43,24 @@ function EmployeeForm() {
         <Form>
       <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Name</Form.Label>
-        <Form.Control type="text" placeholder="Enter Your Name"  onChange={changeData} />
+        <Form.Control type="text" placeholder="Enter Your Name"  onChange={changeData} name='Name' />
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicDesignation">
         <Form.Label>Designation</Form.Label>
-        <Form.Control type="text" placeholder="Enter Your Designation" onChange={changeData}/>
+        <Form.Control type="text" placeholder="Enter Your Designation" onChange={changeData} name='Designation'/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicLocation">
         <Form.Label>Location</Form.Label>
-        <Form.Control type="text" placeholder="Enter Your Location"  onChange={changeData} />
+        <Form.Control type="text" placeholder="Enter Your Location"  onChange={changeData} name='Location'/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicSalary">
         <Form.Label>Salary</Form.Label>
-        <Form.Control type="number" placeholder="Enter Your Salary"  onChange={changeData} />
+        <Form.Control type="number" placeholder="Enter Your Salary"  onChange={changeData} name='Salary'/>
       </Form.Group>
 
       
