@@ -3,9 +3,12 @@ import Navigation from './Navigation'
 import axios from 'axios'
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
+  const navigate = useNavigate()
+
   const apilink="http://localhost:3000/api/employeelist"
 
   var [users,change]=useState( [] )
@@ -18,17 +21,17 @@ function Dashboard() {
       )
     },[]
   )
-  const update=(event)=>{
+  // const update=(event)=>{
 
-    console.log(event)
-    let input= {}
-    input.name=event.target.attributes.username;
-    input.position=event.target.attributes.userposition;
-    input.location=event.target.attributes.userlocation;
-    input.salary=event.target.attributes.usersalary;
-    console.log(input)
-     axios.put("http://localhost:3000/api/employeelist", input).then(response=>{alert("user updated")})
-  }
+  //   console.log(event)
+  //   let input= {}
+  //   input.name=event.target.attributes.username;
+  //   input.position=event.target.attributes.userposition;
+  //   input.location=event.target.attributes.userlocation;
+  //   input.salary=event.target.attributes.usersalary;
+  //   console.log(input)
+  //    axios.put("http://localhost:3000/api/employeelist", input).then(response=>//{alert("user updated")})
+  //}
   const setUser=(id,name,place,designation,salary)=>{
     localStorage.setItem("_id",id);
     localStorage.setItem("name",name);
@@ -38,11 +41,19 @@ function Dashboard() {
         
   }
   const deleteUser=(id,name,place,designation,salary)=>{
-    axios.delete('/api/employeelist')
+    
+    axios.delete('/api/employeelist/'+id)
     .then(response =>{
         if(response.status === 200){
             console.log("inside axios")
-            Navigation('/')
+             alert("Deleted successfully")
+            navigate('/')
+            
+            window.location.reload(true)
+           
+          
+            console.log("delete")
+           
         }
         else{
             alert("Update Failed")

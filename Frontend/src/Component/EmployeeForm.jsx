@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -14,6 +15,7 @@ function EmployeeForm() {
 
   
     const[input,changeInput]=useState({})
+    const navigate = useNavigate()
   
     const changeData=(event)=>{
       console.log(event)
@@ -30,7 +32,19 @@ function EmployeeForm() {
   
   const clickSubmit=()=>{
     console.log(input)
-    axios.post("http://localhost:3000/api/employeelist", input).then(response=>{changeInput(response.data)})
+    axios.post("http://localhost:3000/api/employeelist", input).then(response=>{changeInput(response.data)
+    if(response.status === 200){
+      navigate('/')
+      console.log("inside axios")
+      alert("Employee Created")
+      window.location.reload(true)
+      
+      
+      
+      
+     
+  }
+    })
   }
   return (
     <div><Navigation/>

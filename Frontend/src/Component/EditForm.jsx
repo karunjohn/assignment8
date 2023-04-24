@@ -45,7 +45,8 @@ const EditForm = () => {
         .then(response =>{
             if(response.status === 200){
                 console.log("inside axios")
-                navigate('/')
+                navigate('/api/employeelist')
+                window.location.reload(true)
             }
             else{
                 alert("Update Failed")
