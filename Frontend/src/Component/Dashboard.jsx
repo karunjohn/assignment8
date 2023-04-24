@@ -42,7 +42,7 @@ function Dashboard() {
     .then(response =>{
         if(response.status === 200){
             console.log("inside axios")
-            navigate('/')
+            Navigation('/')
         }
         else{
             alert("Update Failed")
@@ -79,7 +79,7 @@ function Dashboard() {
       </Button>
       </Link>
       <Button variant="danger" onClick={() => deleteUser(user._id, user.name, user.email, user.location, user.position, user.salary)}>
-        Update
+        Delete 
       </Button>
       
       </td>
