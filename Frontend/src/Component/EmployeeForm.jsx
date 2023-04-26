@@ -36,12 +36,7 @@ function EmployeeForm() {
     if(response.status === 200){
       navigate('/')
       console.log("inside axios")
-      alert("Employee Created")
-      window.location.reload(true)
-      
-      
-      
-      
+      alert("Employee Created")   
      
   }
     })
